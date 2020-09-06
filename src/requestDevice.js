@@ -2,7 +2,6 @@ const noble = require('@abandonware/noble');
 const {serviceToUuid, toNobleUuid} = require('./utils');
 const getAvailability = require('./getAvailability');
 const BluetoothDevice = require('./BluetoothDevice');
-const InteractiveRequestDeviceDelegate = require('./InteractiveRequestDeviceDelegate');
 
 function isFilteredDevice({name, uuids}, filter) {
 	if (filter.services) {
@@ -50,8 +49,6 @@ async function requestDevice({ // eslint-disable-line
 } = {}) {
 	if (optionalServices) throw new Error('optionalServices is not yet supported');
 	if (acceptAllDevices) throw new Error('acceptAllDevices is not yet supported');
-
-	delegate = delegate || new InteractiveRequestDeviceDelegate();
 
 	const serviceUUIDs = [];
 	filters.forEach((filter) => {
