@@ -5,7 +5,9 @@ const colors = require('colors');
 const canvas = new Canvas(100, 200);
 const ctx = canvas.getContext('2d');
 const stdin = process.stdin;
-require('keypress')(stdin);
+const readline = require('readline');
+
+readline.emitKeypressEvents(process.stdin);
 
 function prop(name) {
   return function(obj){
