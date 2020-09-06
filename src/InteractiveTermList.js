@@ -7,7 +7,10 @@ const ctx = canvas.getContext('2d');
 const stdin = process.stdin;
 const readline = require('readline');
 
-readline.emitKeypressEvents(process.stdin);
+stdin.setRawMode(true);
+stdin.resume();
+stdin.setEncoding('utf-8');
+readline.emitKeypressEvents(stdin);
 
 function prop(name) {
   return function(obj){
